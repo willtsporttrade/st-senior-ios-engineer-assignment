@@ -24,6 +24,7 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Detail"
         self.view.backgroundColor = .backgroundViewController
     }
 }

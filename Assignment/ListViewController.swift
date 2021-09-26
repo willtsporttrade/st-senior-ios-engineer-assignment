@@ -24,6 +24,7 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "List"
         self.view.backgroundColor = .backgroundViewController
     }
 }
