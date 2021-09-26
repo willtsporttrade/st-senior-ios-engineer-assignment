@@ -33,6 +33,11 @@ final class RootComponent: BootstrapComponent {
         }
     }
     
+    // MARK: -
+    var listComponent: ListViewModelComponent {
+        ListViewModelComponent(parent: self)
+    }
+    
     // MARK: - Private Properties
     private let environment: EnvironmentManager.Environment
     

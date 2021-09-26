@@ -20,11 +20,14 @@
 import UIKit
 
 final class ListViewController: UIViewController {
+    // MARK: - Private Properties
+    private let viewModel = DefaultApplication.shared.rootComponent.listComponent.viewModel
+    
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "List"
+        self.title = self.viewModel.title
         self.view.backgroundColor = .backgroundViewController
     }
 }
