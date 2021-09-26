@@ -19,7 +19,6 @@
 
 import Combine
 import Moya
-import os.log
 
 final class NetworkManager {
     // MARK: - Private Properties
