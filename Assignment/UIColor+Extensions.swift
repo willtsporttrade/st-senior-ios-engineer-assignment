@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UIColor+Extensions.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -19,12 +19,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    // MARK: - Override Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = .backgroundViewController
+extension UIColor {
+    // MARK: - Public Properties
+    static var backgroundViewController: UIColor {
+        UIColor(named: "BackgroundViewController")!
     }
 }
-
