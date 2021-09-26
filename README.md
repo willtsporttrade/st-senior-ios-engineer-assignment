@@ -16,20 +16,18 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
 
 ## Guidelines
 
-1. This project uses [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
-1. This project uses [Combine](https://developer.apple.com/documentation/combine)
+1. You **must** use [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+1. You **must** use [Combine](https://developer.apple.com/documentation/combine)
 1. You **cannot** remove dependencies
 1. You can add dependencies, but you must provide justification in the pull request notes
 
-## Assignment
+## Assignment - Required
 
 1. Finish implementing `ListViewController`
     1. Display the following for each represented `PositionModel`
         1. `name`
         1. `price`, formatted as currency (US dollars)
-    1. **Optional**: Use `UICollectionViewDiffableDataSource` or `UITableViewDiffableDataSource`
     1. On tap of represented `PositionModel`, push an instance of `DetailViewController`
-    1. **Optional**: Implement a custom push animation using [`UINavigationControllerDelegate.navigationController(_:animationControllerFor:from:to:`](https://developer.apple.com/documentation/uikit/uinavigationcontrollerdelegate/1621846-navigationcontroller)
 1. Finish implementing `DetailViewController`
     1. Display the following for the represented `PositionModel`
         1. `name`
@@ -42,3 +40,8 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
 1. Prepare all user visible strings for localization, see `ListViewModel` for an example
 1. Ensure implemented UI responds appropriately to [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) changes
 1. Ensure implemented UI responds appropriately to [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode)
+
+### Assignment - Optional
+
+1. **Optional**: Use `UICollectionViewDiffableDataSource` or `UITableViewDiffableDataSource` within `ListViewController`
+1. **Optional**: Implement a custom transition using [`UINavigationControllerDelegate.navigationController(_:animationControllerFor:from:to:`](https://developer.apple.com/documentation/uikit/uinavigationcontrollerdelegate/1621846-navigationcontroller) when pushing `DetailViewController`
