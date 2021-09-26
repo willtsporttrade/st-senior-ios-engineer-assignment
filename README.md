@@ -36,7 +36,7 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
         1. `price`, formatted as currency (US dollars)
         1. `quantity`, formatted as decimal with 4 significant digits
     1. Subscribe to the publisher returned by `CombineManager.position(identifier:)` and update the displayed values
-1. Document your changes for `internal` or higher access level
+1. Document your changes for `internal` or higher access level, ignore `override`s
 1. Prepare all user visible strings for localization, see `ListViewModel` for an example
 1. Ensure implemented UI responds appropriately to [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) changes
 1. Ensure implemented UI responds appropriately to [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode)
