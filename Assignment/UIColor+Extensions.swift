@@ -19,8 +19,14 @@
 
 import UIKit
 
+/**
+ Extension containing `UIColor` convenience functions.
+ */
 extension UIColor {
     // MARK: - Public Properties
+    /**
+     The color that should be used for the background of a view controller.
+     */
     static var backgroundViewController: UIColor {
         UIColor(named: "BackgroundViewController")!
     }

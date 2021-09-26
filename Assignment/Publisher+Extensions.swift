@@ -22,6 +22,9 @@ import Moya
 import os.log
 import SwiftyJSON
 
+/**
+ Extension containing `Publisher` convenience functions.
+ */
 extension Publisher where Output == Response, Failure == MoyaError {
     // MARK: - Public Functions
     /**

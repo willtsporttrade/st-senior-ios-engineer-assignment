@@ -20,8 +20,17 @@
 import Combine
 import Foundation
 
+/**
+ Contains functions that simulate updates on positions.
+ */
 final class CombineManager {
     // MARK: - Public Functions
+    /**
+     Returns a publisher that sends an updated `PositionModel` on an interval and never fails.
+     
+     - Parameter identifier: The identifier of the position
+     - Returns: The publisher
+     */
     func position(identifier: String) -> AnyPublisher<PositionModel, Never> {
         Timer.publish(every: 5.0, tolerance: nil, on: .main, in: .default, options: nil)
             .autoconnect()

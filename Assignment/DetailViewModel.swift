@@ -20,15 +20,27 @@
 import NeedleFoundation
 
 /**
- De
+ Describes the dependencies required for `DetailViewModelComponent`.
  */
 protocol DetailViewModelDependency: Dependency {
     // MARK: - Public Properties
+    /**
+     The network manager to inject.
+     */
     var networkManager: NetworkManager { get }
 }
 
+/**
+ Creates `DetailViewModel` instances.
+ */
 final class DetailViewModelComponent: Component<DetailViewModelDependency> {
     // MARK: - Public Functions
+    /**
+     Returns a view model instance.
+     
+     - Parameter position: The represented position
+     - Returns: The instance
+     */
     func viewModel(position: PositionModel) -> DetailViewModel {
         .init(position: position, networkManager: self.networkManager)
     }
@@ -36,6 +48,9 @@ final class DetailViewModelComponent: Component<DetailViewModelDependency> {
 
 final class DetailViewModel {
     // MARK: - Public Properties
+    /**
+     Returns the title, suitable for display to the user.
+     */
     var title: String {
         self.position.name
     }
@@ -45,6 +60,13 @@ final class DetailViewModel {
     private let networkManager: NetworkManager
     
     // MARK: - Initializers
+    /**
+     Creates an instance with the provided parameters.
+     
+     - Parameter position: The represented position
+     - Parameter networkManager: The network manager to use
+     - Returns: The instance
+     */
     init(position: PositionModel, networkManager: NetworkManager) {
         self.position = position
         self.networkManager = networkManager

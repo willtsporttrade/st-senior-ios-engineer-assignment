@@ -19,6 +19,9 @@
 
 import UIKit
 
+/**
+ Manages the views required to display the state managed by `DetailViewModel` to the user.
+ */
 final class DetailViewController: UIViewController {
     // MARK: - Private Properties
     private let viewModel: DetailViewModel
@@ -32,6 +35,12 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: - Initializers
+    /**
+     Creates an instance to display the provided position.
+     
+     - Parameter position: The position to display
+     - Returns: The instance
+     */
     init(position: PositionModel) {
         self.viewModel = DefaultApplication.shared.rootComponent.detailComponent.viewModel(position: position)
         

@@ -20,7 +20,7 @@
 import UIKit
 
 /**
- Manages the views required for displaying the state managed by `ListViewModel` to the user.
+ Manages the views required to display the state managed by `ListViewModel` to the user.
  */
 final class ListViewController: UIViewController {
     // MARK: - Private Properties
