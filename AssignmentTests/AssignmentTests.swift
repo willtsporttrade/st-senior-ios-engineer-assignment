@@ -26,6 +26,12 @@ final class AssignmentTests: QuickSpec {
     // MARK: - Override Functions
     override func spec() {
         describe("AssignmentTests") {
+            var rootComponent: RootComponent!
+            
+            beforeEach {
+                rootComponent = RootComponent(environment: .testing)
+            }
+            
             context("Function name") {
                 it("Test expectation") {
                     

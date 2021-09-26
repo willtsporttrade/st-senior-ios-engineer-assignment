@@ -43,5 +43,5 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
 
 ### Assignment - Optional
 
-1. **Optional**: Use `UICollectionViewDiffableDataSource` or `UITableViewDiffableDataSource` within `ListViewController`
+1. **Optional**: Use `UICollectionViewDiffableDataSource` or `UITableViewDiffableDataSource` within `ListViewController` implementation
 1. **Optional**: Implement a custom transition using [`UINavigationControllerDelegate.navigationController(_:animationControllerFor:from:to:`](https://developer.apple.com/documentation/uikit/uinavigationcontrollerdelegate/1621846-navigationcontroller) when pushing `DetailViewController`
