@@ -42,7 +42,12 @@ enum NetworkService: TargetType {
     }
     
     var sampleData: Data {
-        Data()
+        switch self {
+        case .list:
+            return try! ListResponse.stub().toJSON().rawData()
+        case .detail:
+            return Data()
+        }
     }
     
     var task: Task {

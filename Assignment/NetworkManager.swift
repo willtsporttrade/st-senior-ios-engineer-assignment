@@ -19,6 +19,7 @@
 
 import Combine
 import Moya
+import os.log
 
 final class NetworkManager {
     // MARK: - Private Properties
@@ -27,12 +28,9 @@ final class NetworkManager {
     private let queue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).\(String(describing: NetworkManager.self))", qos: .userInitiated)
     
     // MARK: - Public Functions
-    func list() -> AnyPublisher<Response, MoyaError> {
+    func list() -> AnyPublisher<ListResponse, MoyaError> {
         self.requestPublisher(target: .list)
-    }
-    
-    func detail(identifier: String) -> AnyPublisher<Response, MoyaError> {
-        self.requestPublisher(target: .detail(identifier: identifier))
+            .compactMapJSONDecodable(ListResponse.self)
     }
     
     // MARK: - Private Functions
@@ -45,6 +43,6 @@ final class NetworkManager {
         self.environmentManager = environmentManager
         self.networkProvider = MoyaProvider(stubClosure: { _ in
             environmentManager.environment.stubBehavior
-        }, callbackQueue: self.queue, session: Session(startRequestsImmediately: false))
+        }, callbackQueue: self.queue, session: Session(startRequestsImmediately: false), plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
     }
 }

@@ -24,6 +24,11 @@
 		79FD95862700BF4C0060F0E6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD95852700BF4C0060F0E6 /* NetworkService.swift */; };
 		79FD95882700C5E10060F0E6 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD95872700C5E10060F0E6 /* ListViewModel.swift */; };
 		79FD958A2700C9550060F0E6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD95892700C9550060F0E6 /* DetailViewModel.swift */; };
+		79FD958C2700CBEF0060F0E6 /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD958B2700CBEF0060F0E6 /* ListResponse.swift */; };
+		79FD958E2700CD0F0060F0E6 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD958D2700CD0F0060F0E6 /* Publisher+Extensions.swift */; };
+		79FD95902700CD610060F0E6 /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD958F2700CD610060F0E6 /* JSONEncodable.swift */; };
+		79FD95922700CDAB0060F0E6 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD95912700CDAB0060F0E6 /* JSONDecodable.swift */; };
+		79FD95942700CE790060F0E6 /* PositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD95932700CE790060F0E6 /* PositionModel.swift */; };
 		B0335AF5490AB798DE424113 /* Pods_sporttrade_senior_ios_engineer_assignment_sporttrade_senior_ios_engineer_assignment_tests_AssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D634D80CEF097B3ABB5265CB /* Pods_sporttrade_senior_ios_engineer_assignment_sporttrade_senior_ios_engineer_assignment_tests_AssignmentTests.framework */; };
 		CC4ACC92FE9A2920C16129D9 /* Pods_sporttrade_senior_ios_engineer_assignment_sporttrade_senior_ios_engineer_assignment_tests_AssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5F4A17D713F15C84D0F7BA /* Pods_sporttrade_senior_ios_engineer_assignment_sporttrade_senior_ios_engineer_assignment_tests_AssignmentUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +75,11 @@
 		79FD95852700BF4C0060F0E6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		79FD95872700C5E10060F0E6 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		79FD95892700C9550060F0E6 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		79FD958B2700CBEF0060F0E6 /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		79FD958D2700CD0F0060F0E6 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
+		79FD958F2700CD610060F0E6 /* JSONEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncodable.swift; sourceTree = "<group>"; };
+		79FD95912700CDAB0060F0E6 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		79FD95932700CE790060F0E6 /* PositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionModel.swift; sourceTree = "<group>"; };
 		A213740D7311514FEE823198 /* Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A6E3768E988B29C79E922F25 /* Pods_sporttrade_senior_ios_engineer_assignment_Assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sporttrade_senior_ios_engineer_assignment_Assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E3B210DB270F2A9E2E9772 /* Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +143,10 @@
 				791911E42700B79F00441D16 /* main.swift */,
 				79FD957F2700B8FC0060F0E6 /* _needle.swift */,
 				79FD95812700BAD80060F0E6 /* EnvironmentManager.swift */,
+				79FD958F2700CD610060F0E6 /* JSONEncodable.swift */,
+				79FD95912700CDAB0060F0E6 /* JSONDecodable.swift */,
+				79FD95932700CE790060F0E6 /* PositionModel.swift */,
+				79FD958B2700CBEF0060F0E6 /* ListResponse.swift */,
 				79FD95852700BF4C0060F0E6 /* NetworkService.swift */,
 				79FD95832700BD4F0060F0E6 /* NetworkManager.swift */,
 				790A85122700AA0800C101FB /* AppDelegate.swift */,
@@ -141,6 +155,7 @@
 				790A85162700AA0800C101FB /* ListViewController.swift */,
 				79FD95892700C9550060F0E6 /* DetailViewModel.swift */,
 				791911E22700B12000441D16 /* DetailViewController.swift */,
+				79FD958D2700CD0F0060F0E6 /* Publisher+Extensions.swift */,
 				791911E02700AF3B00441D16 /* UIColor+Extensions.swift */,
 				790A851B2700AA0900C101FB /* Assets.xcassets */,
 				790A851D2700AA0900C101FB /* LaunchScreen.storyboard */,
@@ -469,14 +484,19 @@
 			files = (
 				79FD95862700BF4C0060F0E6 /* NetworkService.swift in Sources */,
 				79FD95842700BD4F0060F0E6 /* NetworkManager.swift in Sources */,
+				79FD958E2700CD0F0060F0E6 /* Publisher+Extensions.swift in Sources */,
 				790A85172700AA0800C101FB /* ListViewController.swift in Sources */,
 				790A85132700AA0800C101FB /* AppDelegate.swift in Sources */,
 				79FD95802700B8FC0060F0E6 /* _needle.swift in Sources */,
+				79FD95942700CE790060F0E6 /* PositionModel.swift in Sources */,
 				79FD95822700BAD80060F0E6 /* EnvironmentManager.swift in Sources */,
 				791911E52700B79F00441D16 /* main.swift in Sources */,
 				79FD958A2700C9550060F0E6 /* DetailViewModel.swift in Sources */,
 				791911E32700B12000441D16 /* DetailViewController.swift in Sources */,
 				790A85152700AA0800C101FB /* SceneDelegate.swift in Sources */,
+				79FD95922700CDAB0060F0E6 /* JSONDecodable.swift in Sources */,
+				79FD95902700CD610060F0E6 /* JSONEncodable.swift in Sources */,
+				79FD958C2700CBEF0060F0E6 /* ListResponse.swift in Sources */,
 				791911E12700AF3B00441D16 /* UIColor+Extensions.swift in Sources */,
 				79FD95882700C5E10060F0E6 /* ListViewModel.swift in Sources */,
 			);

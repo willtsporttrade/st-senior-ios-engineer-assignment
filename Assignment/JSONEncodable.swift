@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  JSONEncodable.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -17,20 +17,17 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import SwiftyJSON
 
-final class ListViewController: UIViewController {
-    // MARK: - Private Properties
-    private let viewModel = DefaultApplication.shared.rootComponent.listComponent.viewModel
-    
-    // MARK: - Override Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = self.viewModel.title
-        self.view.backgroundColor = .backgroundViewController
-        
-        self.viewModel.requestList(completion: nil)
-    }
+/**
+ `JSONEncodable` is a **protocol** that describes an object that can output a `JSON` blob representing its state.
+ */
+protocol JSONEncodable {
+    // MARK: - Public Functions
+    /**
+     Returns a json blob representing the receiver's state.
+     
+     - Returns: The json blob
+     */
+    func toJSON() -> JSON
 }
-

@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  JSONDecodable.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -17,20 +17,18 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import SwiftyJSON
 
-final class ListViewController: UIViewController {
-    // MARK: - Private Properties
-    private let viewModel = DefaultApplication.shared.rootComponent.listComponent.viewModel
-    
-    // MARK: - Override Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = self.viewModel.title
-        self.view.backgroundColor = .backgroundViewController
-        
-        self.viewModel.requestList(completion: nil)
-    }
+/**
+ `JSONDecodable` is a **protocol** that describes an object that can initialize itself from a `JSON` blob.
+ */
+protocol JSONDecodable {
+    // MARK: - Initializers
+    /**
+     Returns an instance of the receiver from the provided json blob.
+     
+     - Parameter json: The json blob
+     - Returns: An instance of the receiver or nil
+     */
+    init?(json: JSON)
 }
-

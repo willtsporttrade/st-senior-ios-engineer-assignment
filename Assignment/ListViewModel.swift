@@ -17,6 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+import Combine
 import NeedleFoundation
 
 protocol ListViewModelDependency: Dependency {
@@ -39,6 +40,24 @@ final class ListViewModel {
     
     // MARK: - Private Properties
     private let networkManager: NetworkManager
+    private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Public Functions
+    func requestList(completion: ((Result<ListResponse, Error>) -> Void)? = nil) {
+        self.networkManager.list()
+            .receive(on: DispatchQueue.main)
+            .sink {
+                switch $0 {
+                case .failure(let error):
+                    completion?(.failure(error))
+                default:
+                    break
+                }
+            } receiveValue: {
+                completion?(.success($0))
+            }
+            .store(in: &self.cancellables)
+    }
     
     // MARK: - Initializers
     init(networkManager: NetworkManager) {
