@@ -20,11 +20,26 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    // MARK: - Private Properties
+    private let viewModel: DetailViewModel
+    
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Detail"
+        self.title = self.viewModel.title
         self.view.backgroundColor = .backgroundViewController
+    }
+    
+    // MARK: - Initializers
+    init(identifier: String) {
+        self.viewModel = DefaultApplication.shared.rootComponent.detailComponent.viewModel(identifier: identifier)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) is not available")
     }
 }

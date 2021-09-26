@@ -38,6 +38,10 @@ final class RootComponent: BootstrapComponent {
         ListViewModelComponent(parent: self)
     }
     
+    var detailComponent: DetailViewModelComponent {
+        DetailViewModelComponent(parent: self)
+    }
+    
     // MARK: - Private Properties
     private let environment: EnvironmentManager.Environment
     
