@@ -20,12 +20,27 @@
 import NeedleFoundation
 
 final class RootComponent: BootstrapComponent {
+    // MARK: - Public Properties
+    var environmentManager: EnvironmentManager {
+        self.shared {
+            EnvironmentManager(environment: self.environment)
+        }
+    }
     
+    // MARK: - Private Properties
+    private let environment: EnvironmentManager.Environment
+    
+    // MARK: - Initializers
+    init(environment: EnvironmentManager.Environment) {
+        self.environment = environment
+        
+        super.init()
+    }
 }
 
 final class DefaultApplication: UIApplication {
     // MARK: - Public Properties
-    let rootComponent = RootComponent()
+    let rootComponent = RootComponent(environment: .default)
     
     // MARK: - Override Properties
     override class var shared: DefaultApplication {
