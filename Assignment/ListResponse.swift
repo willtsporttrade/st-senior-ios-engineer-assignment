@@ -19,11 +19,20 @@
 
 import SwiftyJSON
 
+/**
+ Represents the network response for the `NetworkService.list` endpoint.
+ */
 struct ListResponse: JSONEncodable {
     // MARK: - Public Properties
+    /**
+     The list of positions.
+     */
     let positions: [PositionModel]
     
     // MARK: - Public Functions
+    /**
+     Returns an instance with random values.
+     */
     static func stub() -> ListResponse {
         .init(positions: (1...10).map { _ in
             .stub()
@@ -38,6 +47,9 @@ struct ListResponse: JSONEncodable {
     }
 }
 
+/**
+ Extension adding `JSONDecodable` conformance.
+ */
 extension ListResponse: JSONDecodable {
     // MARK: - JSONDecodable
     init?(json: JSON) {

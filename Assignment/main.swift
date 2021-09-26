@@ -19,25 +19,49 @@
 
 import NeedleFoundation
 
+/**
+ The root dependency injection component.
+ */
 final class RootComponent: BootstrapComponent {
     // MARK: - Public Properties
+    /**
+     The shared environment manager.
+     */
     var environmentManager: EnvironmentManager {
         self.shared {
             EnvironmentManager(environment: self.environment)
         }
     }
     
+    /**
+     The shared network manager.
+     */
     var networkManager: NetworkManager {
         self.shared {
             NetworkManager(environmentManager: self.environmentManager)
         }
     }
     
+    /**
+     The shared combine manager.
+     */
+    var combineManager: CombineManager {
+        self.shared {
+            CombineManager()
+        }
+    }
+    
     // MARK: -
+    /**
+     The list component.
+     */
     var listComponent: ListViewModelComponent {
         ListViewModelComponent(parent: self)
     }
     
+    /**
+     The detail component.
+     */
     var detailComponent: DetailViewModelComponent {
         DetailViewModelComponent(parent: self)
     }
@@ -46,6 +70,12 @@ final class RootComponent: BootstrapComponent {
     private let environment: EnvironmentManager.Environment
     
     // MARK: - Initializers
+    /**
+     Creates an instance with the provided environment.
+     
+     - Parameter environment: The environment to use
+     - Returns: The instance
+     */
     init(environment: EnvironmentManager.Environment) {
         self.environment = environment
         
@@ -53,8 +83,14 @@ final class RootComponent: BootstrapComponent {
     }
 }
 
+/**
+ `UIApplication` subclass exposing the root dependency injection component.
+ */
 final class DefaultApplication: UIApplication {
     // MARK: - Public Properties
+    /**
+     The root dependency injection component.
+     */
     let rootComponent = RootComponent(environment: .testing)
     
     // MARK: - Override Properties

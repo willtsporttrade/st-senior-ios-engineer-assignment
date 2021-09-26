@@ -20,6 +20,9 @@
 import Combine
 import Moya
 
+/**
+ Manages network requests.
+ */
 final class NetworkManager {
     // MARK: - Private Properties
     private let environmentManager: EnvironmentManager
@@ -27,6 +30,9 @@ final class NetworkManager {
     private let queue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).\(String(describing: NetworkManager.self))", qos: .userInitiated)
     
     // MARK: - Public Functions
+    /**
+     Returns a publisher that sends a `ListResponse` or fails with a `MoyaError`.
+     */
     func list() -> AnyPublisher<ListResponse, MoyaError> {
         self.requestPublisher(target: .list)
             .compactMapJSONDecodable(ListResponse.self)
@@ -38,6 +44,12 @@ final class NetworkManager {
     }
     
     // MARK: - Initializers
+    /**
+     Creates an instance with the provided parameters.
+     
+     - Parameter environmentManager: The environment manager to use
+     - Returns: The instance
+     */
     init(environmentManager: EnvironmentManager) {
         self.environmentManager = environmentManager
         self.networkProvider = MoyaProvider(stubClosure: { _ in

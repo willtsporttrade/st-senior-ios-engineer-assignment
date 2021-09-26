@@ -19,30 +19,56 @@
 
 import Combine
 import NeedleFoundation
+import os.log
 
+/**
+ Describes the dependencies required for `ListViewModelComponent`.
+ */
 protocol ListViewModelDependency: Dependency {
     // MARK: - Public Properties
+    /**
+     The network manager to inject.
+     */
     var networkManager: NetworkManager { get }
+    var combineManager: CombineManager { get }
 }
 
+/**
+ Creates `ListViewModel` instances.
+ */
 final class ListViewModelComponent: Component<ListViewModelDependency> {
     // MARK: - Public Properties
+    /**
+     Returns a view model instance.
+     */
     var viewModel: ListViewModel {
-        .init(networkManager: self.networkManager)
+        .init(networkManager: self.networkManager, combineManager: self.combineManager)
     }
 }
 
+/**
+ Manages the state required for `ListViewController`.
+ */
 final class ListViewModel {
     // MARK: - Public Properties
+    /**
+     Returns the title, suitable for display to the user.
+     */
     var title: String {
-        NSLocalizedString("list.title", value: "List", comment: "List title")
+        NSLocalizedString("list.title", value: "Positions", comment: "List title")
     }
     
     // MARK: - Private Properties
     private let networkManager: NetworkManager
+    private let combineManager: CombineManager
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Public Functions
+    /**
+     Request the list of positions and invoke the provided completion block.
+     
+     - Parameter completion: The completion to invoke on the main thread when the request has finished
+     */
     func requestList(completion: ((Result<ListResponse, Error>) -> Void)? = nil) {
         self.networkManager.list()
             .receive(on: DispatchQueue.main)
@@ -60,7 +86,14 @@ final class ListViewModel {
     }
     
     // MARK: - Initializers
-    init(networkManager: NetworkManager) {
+    /**
+     Creates an instance with the provided parameters.
+     
+     - Parameter networkManager: The network manager to use
+     - Returns: The instance
+     */
+    init(networkManager: NetworkManager, combineManager: CombineManager) {
         self.networkManager = networkManager
+        self.combineManager = combineManager
     }
 }

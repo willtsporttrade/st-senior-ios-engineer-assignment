@@ -20,7 +20,7 @@
 import SwiftyJSON
 
 /**
- `JSONEncodable` is a **protocol** that describes an object that can output a `JSON` blob representing its state.
+ Describes an object that can output a `JSON` blob representing its state.
  */
 protocol JSONEncodable {
     // MARK: - Public Functions

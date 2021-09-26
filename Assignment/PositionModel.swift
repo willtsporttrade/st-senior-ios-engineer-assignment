@@ -19,6 +19,9 @@
 
 import SwiftyJSON
 
+/**
+ Represents a position.
+ */
 struct PositionModel: JSONEncodable {
     // MARK: - Private Types
     private enum JSONKey: String {
@@ -31,16 +34,39 @@ struct PositionModel: JSONEncodable {
     }
     
     // MARK: - Public Properties
+    /**
+     Unique identifier for this position.
+     */
     let identifier: String
+    /**
+     The position name.
+     */
     let name: String
+    /**
+     The criteria name.
+     */
     let criteriaName: String
+    /**
+     The story name.
+     */
     let storyName: String
+    /**
+     The position price, in dollars.
+     */
     let price: NSDecimalNumber
+    /**
+     The position quantity.
+     */
     let quantity: NSDecimalNumber
     
     // MARK: - Public Functions
-    static func stub() -> PositionModel {
-        .init(identifier: UUID().uuidString, name: "Name", criteriaName: "Criteria name", storyName: "Story name", price: NSDecimalNumber(value: Double.random(in: 0.1...99.9)), quantity: NSDecimalNumber(value: Double.random(in: 0.1...25.0)))
+    /**
+     Returns an instance with random values.
+     
+     - Returns: The instance
+     */
+    static func stub(identifier: String = UUID().uuidString) -> PositionModel {
+        .init(identifier: identifier, name: "Philadelphia Eagles", criteriaName: "To win", storyName: "New York Jets at Philadelphia Eagles", price: NSDecimalNumber(value: Double.random(in: 0.1...99.9)), quantity: NSDecimalNumber(value: Double.random(in: 0.1...25.0)))
     }
     
     // MARK: - JSONEncodable
@@ -55,7 +81,11 @@ struct PositionModel: JSONEncodable {
     }
 }
 
+/**
+ Extension adding `JSONDecodable` conformance.
+ */
 extension PositionModel: JSONDecodable {
+    // MARK: - JSONDecodable
     init?(json: JSON) {
         guard let identifier = json[JSONKey.identifier.rawValue].string else {
             return nil

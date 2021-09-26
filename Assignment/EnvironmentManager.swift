@@ -19,12 +19,24 @@
 
 import Moya
 
+/**
+ Manages the current execution environment.
+ */
 final class EnvironmentManager {
     // MARK: - Public Types
+    /**
+     Represents the execution environment.
+     */
     enum Environment {
+        /**
+         The testing environment, **all** network responses are stubbed.
+         */
         case testing
         
         // MARK: - Public Properties
+        /**
+         Returns the stub behavior to use.
+         */
         var stubBehavior: StubBehavior {
             switch self {
             case .testing:
@@ -34,9 +46,18 @@ final class EnvironmentManager {
     }
     
     // MARK: - Public Properties
+    /**
+     The current environment.
+     */
     let environment: Environment
     
     // MARK: - Initializers
+    /**
+     Creates an instance with the provided environment.
+     
+     - Parameter environment: The environment to use
+     - Returns: The instance
+     */
     init(environment: Environment) {
         self.environment = environment
     }

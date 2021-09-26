@@ -32,8 +32,8 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: - Initializers
-    init(identifier: String) {
-        self.viewModel = DefaultApplication.shared.rootComponent.detailComponent.viewModel(identifier: identifier)
+    init(position: PositionModel) {
+        self.viewModel = DefaultApplication.shared.rootComponent.detailComponent.viewModel(position: position)
         
         super.init(nibName: nil, bundle: nil)
     }

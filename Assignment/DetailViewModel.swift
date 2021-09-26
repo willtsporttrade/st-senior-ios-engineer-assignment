@@ -19,6 +19,9 @@
 
 import NeedleFoundation
 
+/**
+ De
+ */
 protocol DetailViewModelDependency: Dependency {
     // MARK: - Public Properties
     var networkManager: NetworkManager { get }
@@ -26,24 +29,24 @@ protocol DetailViewModelDependency: Dependency {
 
 final class DetailViewModelComponent: Component<DetailViewModelDependency> {
     // MARK: - Public Functions
-    func viewModel(identifier: String) -> DetailViewModel {
-        .init(identifier: identifier, networkManager: self.networkManager)
+    func viewModel(position: PositionModel) -> DetailViewModel {
+        .init(position: position, networkManager: self.networkManager)
     }
 }
 
 final class DetailViewModel {
     // MARK: - Public Properties
     var title: String {
-        self.identifier
+        self.position.name
     }
     
     // MARK: - Private Properties
-    private let identifier: String
+    private let position: PositionModel
     private let networkManager: NetworkManager
     
     // MARK: - Initializers
-    init(identifier: String, networkManager: NetworkManager) {
-        self.identifier = identifier
+    init(position: PositionModel, networkManager: NetworkManager) {
+        self.position = position
         self.networkManager = networkManager
     }
 }

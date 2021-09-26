@@ -20,7 +20,7 @@
 import SwiftyJSON
 
 /**
- `JSONDecodable` is a **protocol** that describes an object that can initialize itself from a `JSON` blob.
+ Describes an object that can initialize itself from a `JSON` blob.
  */
 protocol JSONDecodable {
     // MARK: - Initializers

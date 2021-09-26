@@ -19,8 +19,17 @@
 
 import Moya
 
+/**
+ Represents individual endpoints.
+ */
 enum NetworkService: TargetType {
+    /**
+     Returns a list of positions.
+     */
     case list
+    /**
+     Returns the detail for a single position.
+     */
     case detail(identifier: String)
     
     // MARK: - TargetType
@@ -31,9 +40,9 @@ enum NetworkService: TargetType {
     var path: String {
         switch self {
         case .list:
-            return "list"
+            return "positions"
         case .detail(let identifier):
-            return "list/\(identifier)"
+            return "positions/\(identifier)"
         }
     }
     

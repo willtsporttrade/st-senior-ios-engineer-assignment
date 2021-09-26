@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  CombineManager.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -17,23 +17,17 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import Combine
+import Foundation
 
-/**
- Manages the views required for displaying the state managed by `ListViewModel` to the user.
- */
-final class ListViewController: UIViewController {
-    // MARK: - Private Properties
-    private let viewModel = DefaultApplication.shared.rootComponent.listComponent.viewModel
-    
-    // MARK: - Override Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = self.viewModel.title
-        self.view.backgroundColor = .backgroundViewController
-        
-        self.viewModel.requestList(completion: nil)
+final class CombineManager {
+    // MARK: - Public Functions
+    func position(identifier: String) -> AnyPublisher<PositionModel, Never> {
+        Timer.publish(every: 5.0, tolerance: nil, on: .main, in: .default, options: nil)
+            .autoconnect()
+            .map { _ in
+                PositionModel.stub(identifier: identifier)
+            }
+            .eraseToAnyPublisher()
     }
 }
-
