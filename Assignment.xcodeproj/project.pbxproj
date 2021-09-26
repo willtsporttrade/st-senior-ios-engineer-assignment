@@ -15,6 +15,7 @@
 		790A852A2700AA0900C101FB /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790A85292700AA0900C101FB /* AssignmentTests.swift */; };
 		790A85342700AA0900C101FB /* AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790A85332700AA0900C101FB /* AssignmentUITests.swift */; };
 		791911E12700AF3B00441D16 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791911E02700AF3B00441D16 /* UIColor+Extensions.swift */; };
+		791911E32700B12000441D16 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791911E22700B12000441D16 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		790A852F2700AA0900C101FB /* AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		790A85332700AA0900C101FB /* AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentUITests.swift; sourceTree = "<group>"; };
 		791911E02700AF3B00441D16 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		791911E22700B12000441D16 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				790A85122700AA0800C101FB /* AppDelegate.swift */,
 				790A85142700AA0800C101FB /* SceneDelegate.swift */,
 				790A85162700AA0800C101FB /* ListViewController.swift */,
+				791911E22700B12000441D16 /* DetailViewController.swift */,
 				791911E02700AF3B00441D16 /* UIColor+Extensions.swift */,
 				790A851B2700AA0900C101FB /* Assets.xcassets */,
 				790A851D2700AA0900C101FB /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				790A85172700AA0800C101FB /* ListViewController.swift in Sources */,
 				790A85132700AA0800C101FB /* AppDelegate.swift in Sources */,
+				791911E32700B12000441D16 /* DetailViewController.swift in Sources */,
 				790A85152700AA0800C101FB /* SceneDelegate.swift in Sources */,
 				791911E12700AF3B00441D16 /* UIColor+Extensions.swift in Sources */,
 			);
