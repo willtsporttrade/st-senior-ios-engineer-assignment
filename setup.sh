@@ -49,7 +49,7 @@ then
 fi
 
 # install from Brewfile
-brew bundle || true
+xcrun brew bundle || true
 
 # install the correct gems locally
 xcrun bundle install
