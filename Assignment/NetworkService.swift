@@ -1,5 +1,5 @@
 //
-//  EnvironmentManager.swift
+//  NetworkService.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -19,25 +19,41 @@
 
 import Moya
 
-final class EnvironmentManager {
-    // MARK: - Public Types
-    enum Environment {
-        case testing
-        
-        // MARK: - Public Properties
-        var stubBehavior: StubBehavior {
-            switch self {
-            case .testing:
-                return .immediate
-            }
+enum NetworkService: TargetType {
+    case list
+    case detail(identifier: String)
+    
+    // MARK: - TargetType
+    var baseURL: URL {
+        URL(string: "https://getsporttrade.com/")!
+    }
+    
+    var path: String {
+        switch self {
+        case .list:
+            return "list"
+        case .detail(let identifier):
+            return "list/\(identifier)"
         }
     }
     
-    // MARK: - Public Properties
-    let environment: Environment
+    var method: Method {
+        .get
+    }
     
-    // MARK: - Initializers
-    init(environment: Environment) {
-        self.environment = environment
+    var sampleData: Data {
+        Data()
+    }
+    
+    var task: Task {
+        .requestPlain
+    }
+    
+    var validationType: ValidationType {
+        .successCodes
+    }
+    
+    var headers: [String: String]? {
+        nil
     }
 }

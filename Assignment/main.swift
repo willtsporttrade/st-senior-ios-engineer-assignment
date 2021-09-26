@@ -27,6 +27,12 @@ final class RootComponent: BootstrapComponent {
         }
     }
     
+    var networkManager: NetworkManager {
+        self.shared {
+            NetworkManager(environmentManager: self.environmentManager)
+        }
+    }
+    
     // MARK: - Private Properties
     private let environment: EnvironmentManager.Environment
     
@@ -40,7 +46,7 @@ final class RootComponent: BootstrapComponent {
 
 final class DefaultApplication: UIApplication {
     // MARK: - Public Properties
-    let rootComponent = RootComponent(environment: .default)
+    let rootComponent = RootComponent(environment: .testing)
     
     // MARK: - Override Properties
     override class var shared: DefaultApplication {
