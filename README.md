@@ -12,5 +12,6 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
 
         ./setup.sh
 
-## Assignment
+1. Open _Assignment.xcworkspace_
 
+## Assignment
