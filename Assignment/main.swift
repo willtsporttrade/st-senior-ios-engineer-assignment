@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  main.swift
 //  Assignment
 //
 //  Created by William Towe on 9/26/21.
@@ -17,16 +17,25 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import NeedleFoundation
 
-final class AppDelegate: UIResponder, UIApplicationDelegate {
-    // MARK: - UIApplicationDelegate
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        true
-    }
+final class RootComponent: BootstrapComponent {
+    
+}
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+final class DefaultApplication: UIApplication {
+    // MARK: - Public Properties
+    let rootComponent = RootComponent()
+    
+    // MARK: - Override Properties
+    override class var shared: DefaultApplication {
+        // swiftlint:disable force_cast
+        super.shared as! DefaultApplication
     }
 }
 
+// needle
+registerProviderFactories()
+
+// launch the app
+UIApplicationMain(CommandLine.argc, CommandLine.unsafeArgv, NSStringFromClass(DefaultApplication.self), NSStringFromClass(AppDelegate.self))
