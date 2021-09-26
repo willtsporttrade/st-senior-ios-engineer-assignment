@@ -47,3 +47,7 @@ Assignment for Senior iOS Engineer position at https://boards.greenhouse.io/spor
 1. **Optional**: Implement a custom transition using [`UINavigationControllerDelegate.navigationController(_:animationControllerFor:from:to:`](https://developer.apple.com/documentation/uikit/uinavigationcontrollerdelegate/1621846-navigationcontroller) when pushing `DetailViewController`
 1. **Optional**: Add unit tests to `AssignmentTests`
 1. **Optional**: Add UI tests to `AssignmentUITest`
+
+## Assignment - Submission
+
+1. Open a pull request against the Sporttrade repo using your fork
