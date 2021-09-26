@@ -190,8 +190,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = ST;
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				ORGANIZATIONNAME = "Sporttrade, Inc";
 				TargetAttributes = {
 					790A850E2700AA0800C101FB = {
 						CreatedOnToolsVersion = 13.0;
