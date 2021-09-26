@@ -17,12 +17,20 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+import Nimble
+import Quick
 import XCTest
 @testable import Assignment
 
-class AssignmentTests: XCTestCase {
-    // MARK: - Public Functions
-    func testExample() throws {
-        
+final class AssignmentTests: QuickSpec {
+    // MARK: - Override Functions
+    override func spec() {
+        describe("AssignmentTests") {
+            context("Function name") {
+                it("Test expectation") {
+                    
+                }
+            }
+        }
     }
 }
