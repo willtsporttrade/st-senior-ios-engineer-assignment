@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Moya/Combine (15.0.0-alpha.1):
+    - Moya/Core
+  - Moya/Core (15.0.0-alpha.1):
+    - Alamofire (~> 5.0)
+  - NeedleFoundation (0.17.2)
+  - Nimble (9.2.1)
+  - Quick (4.0.0)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - Moya/Combine (from `https://github.com/Moya/Moya.git`, tag `15.0.0-alpha.1`)
+  - NeedleFoundation (~> 0.17)
+  - Nimble (~> 9.0)
+  - Quick (~> 4.0)
+  - SwiftyJSON (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - NeedleFoundation
+    - Nimble
+    - Quick
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Moya:
+    :git: https://github.com/Moya/Moya.git
+    :tag: 15.0.0-alpha.1
+
+CHECKOUT OPTIONS:
+  Moya:
+    :git: https://github.com/Moya/Moya.git
+    :tag: 15.0.0-alpha.1
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
+  NeedleFoundation: 36cfaea9ae9eb527a796f5c1df19296c722666b8
+  Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: c16a363483a32fa8bc528623d914e722d9b2c000
+
+COCOAPODS: 1.11.2
