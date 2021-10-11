@@ -16,7 +16,8 @@ abstract_target 'sporttrade-senior-ios-engineer-assignment' do
     pod 'Moya/Combine', :git => 'https://github.com/Moya/Moya.git', :tag => '15.0.0-alpha.1'
     pod 'NeedleFoundation', '~> 0.17'
     pod 'SwiftyJSON', '~> 5.0'
-
+    pod 'Charts'
+    
     target 'Assignment' do
     end
 
