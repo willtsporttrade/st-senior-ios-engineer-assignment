@@ -10,10 +10,10 @@ import UIKit
 
 extension UIView {
     
-    /// Returns a collection of constraints to anchor the bounds of the current view to the given view.
-    ///
-    /// - Parameter view: The view to anchor to.
-    /// - Returns: The layout constraints needed for this constraint.
+    /** Returns a collection of constraints to anchor the bounds of the current view to the given view.
+        - Parameter view: The view to anchor to.
+        - Returns: The layout constraints needed for this constraint.
+     */
     func constraintsForAnchoringTo(boundsOf view: UIView) -> [NSLayoutConstraint] {
         return [
             topAnchor.constraint(equalTo: view.topAnchor),
@@ -23,6 +23,7 @@ extension UIView {
         ]
     }
     
+    /// Sets anchor contrainsts for the current view
     func anchor(top : NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat = 0.0,
                 bottom : NSLayoutYAxisAnchor? = nil, paddingBottom: CGFloat = 0.0,
                 leading: NSLayoutXAxisAnchor? = nil, paddingLeading: CGFloat = 0.0,
@@ -61,6 +62,7 @@ extension UIView {
         }
     }
     
+    ///Sets size contraints for the current view
     func setSize(width: CGFloat? = nil, height: CGFloat? = nil)  {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +76,7 @@ extension UIView {
         }
     }
     
+    ///Sets min size contrainst for the current view
     func setMinSize(width: CGFloat? = nil, height: CGFloat? = nil)  {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -87,92 +90,4 @@ extension UIView {
         }
     }
     
-    
-    func setMaxSize(width: CGFloat? = nil, height: CGFloat? = nil)  {
-        
-        translatesAutoresizingMaskIntoConstraints = false
-       
-        if let width = width, width != 0 {
-            widthAnchor.constraint(lessThanOrEqualToConstant: width).isActive = true
-        }
-        
-        if let height = height, height != 0 {
-            heightAnchor.constraint(lessThanOrEqualToConstant: height).isActive = true
-        }
-    }
-    
-    func center(centerX: NSLayoutXAxisAnchor? = nil, paddingX: CGFloat = 0.0   ,
-                centerY: NSLayoutYAxisAnchor? = nil, paddingY: CGFloat = 0.0)  {
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if let centerX = centerX {
-         centerXAnchor.constraint(equalTo: centerX,
-                                  constant: paddingX).isActive = true
-        }
-        
-        if let centerY = centerY {
-         centerYAnchor.constraint(equalTo: centerY,
-                                  constant: paddingY).isActive = true
-        }
-        
-    }
-    
-    func proportionalSize(width: NSLayoutDimension? = nil , widthPercent: CGFloat = 1.0,
-                          height: NSLayoutDimension? = nil, heightPercent: CGFloat = 1.0) {
-            
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if  let width = width {
-            widthAnchor.constraint(equalTo: width,
-                                   multiplier: widthPercent).isActive = true
-        }
-        
-        if  let height = height {
-            heightAnchor.constraint(equalTo: height,
-                                    multiplier: heightPercent).isActive = true
-        
-        }
-    }
 }
-
-extension NSLayoutConstraint {
-    
-    /// Returns the constraint sender with the passed priority.
-    ///
-    /// - Parameter priority: The priority to be set.
-    /// - Returns: The sended constraint adjusted with the new priority.
-    func usingPriority(_ priority: UILayoutPriority) -> NSLayoutConstraint {
-        self.priority = priority
-        return self
-    }
-    
-}
-
-extension UILayoutPriority {
-    
-    /// Creates a priority which is almost required, but not 100%.
-    static var almostRequired: UILayoutPriority {
-        return UILayoutPriority(rawValue: 999)
-    }
-    
-    /// Creates a priority which is not required at all.
-    static var notRequired: UILayoutPriority {
-        return UILayoutPriority(rawValue: 0)
-    }
-}
-
-@propertyWrapper
-public struct UsesAutoLayout<T: UIView> {
-    public var wrappedValue: T {
-        didSet {
-            wrappedValue.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
-
-    public init(wrappedValue: T) {
-        self.wrappedValue = wrappedValue
-        wrappedValue.translatesAutoresizingMaskIntoConstraints = false
-    }
-}
-

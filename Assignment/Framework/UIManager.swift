@@ -10,6 +10,17 @@ import UIKit
 
 final class UIManager {
 
+    /**
+     UILabel that automatically adjusts for `Dynamic Type` changes
+     and uses `AutoLayout Contraints`
+     
+        - Paramaters:
+            - textStyle: `UIFont.TextStyle` to be used for the preferred font
+            - bold: optional flag used to set the label text to bold
+     
+        -Returns:
+            - UILabel with the specified text style and bold setting
+     */
     class func Label(_ textStyle:UIFont.TextStyle, bold:Bool = false) -> UILabel {
         
         let label = UILabel(frame: .zero)
@@ -27,6 +38,10 @@ final class UIManager {
         return label
     }
     
+    /**
+     UISearchBar that automatically adjusts for `Dynamic Type` changes
+     and uses `AutoLayout Contraints`
+     */
     static func SearchBar() -> UISearchBar {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.searchBarStyle = .minimal
