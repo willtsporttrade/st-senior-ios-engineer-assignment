@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2906FE1E271069A20075A2FB /* UITextField++Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906FE1D271069A20075A2FB /* UITextField++Extensions.swift */; };
-		2906FE2027109E2F0075A2FB /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906FE1F27109E2E0075A2FB /* UIFont+Extensions.swift */; };
+		2906FE1E271069A20075A2FB /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906FE1D271069A20075A2FB /* UITextField+Extensions.swift */; };
 		2906FE242711D2280075A2FB /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906FE232711D2280075A2FB /* LocalizedStrings.swift */; };
+		2906FE2827153DEE0075A2FB /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906FE2727153DED0075A2FB /* UIFont+Extensions.swift */; };
 		290A58212706A9CD0063C05F /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A58202706A9CD0063C05F /* UIManager.swift */; };
 		292E12A727036BE2008D3E2B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12A627036BE2008D3E2B /* UIView+Extensions.swift */; };
 		292E12A92703F902008D3E2B /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12A82703F902008D3E2B /* UICollectionView+Extensions.swift */; };
@@ -64,9 +64,9 @@
 /* Begin PBXFileReference section */
 		23937220E819DA4EF8707675 /* Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		278FE33927DEC5197E6A0A0A /* Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests/Pods-sporttrade-senior-ios-engineer-assignment-sporttrade-senior-ios-engineer-assignment-tests-AssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2906FE1D271069A20075A2FB /* UITextField++Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField++Extensions.swift"; sourceTree = "<group>"; };
-		2906FE1F27109E2E0075A2FB /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+Extensions.swift"; path = "../../../UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		2906FE1D271069A20075A2FB /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		2906FE232711D2280075A2FB /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		2906FE2727153DED0075A2FB /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		290A58202706A9CD0063C05F /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
 		292E12A627036BE2008D3E2B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		292E12A82703F902008D3E2B /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
@@ -198,13 +198,13 @@
 		292E12B22704E387008D3E2B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2906FE2727153DED0075A2FB /* UIFont+Extensions.swift */,
 				79FD958D2700CD0F0060F0E6 /* Publisher+Extensions.swift */,
 				791911E02700AF3B00441D16 /* UIColor+Extensions.swift */,
 				292E12A627036BE2008D3E2B /* UIView+Extensions.swift */,
 				292E12A82703F902008D3E2B /* UICollectionView+Extensions.swift */,
 				292E12B52704F6D3008D3E2B /* NumberFormatter+Extensions.swift */,
-				2906FE1D271069A20075A2FB /* UITextField++Extensions.swift */,
-				2906FE1F27109E2E0075A2FB /* UIFont+Extensions.swift */,
+				2906FE1D271069A20075A2FB /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -593,7 +593,7 @@
 				79FD958E2700CD0F0060F0E6 /* Publisher+Extensions.swift in Sources */,
 				790A85172700AA0800C101FB /* ListViewController.swift in Sources */,
 				292E12B827053C41008D3E2B /* HeaderSupplementaryView.swift in Sources */,
-				2906FE2027109E2F0075A2FB /* UIFont+Extensions.swift in Sources */,
+				2906FE2827153DEE0075A2FB /* UIFont+Extensions.swift in Sources */,
 				790A85132700AA0800C101FB /* AppDelegate.swift in Sources */,
 				79FD95962700E7CE0060F0E6 /* CombineManager.swift in Sources */,
 				79FD95802700B8FC0060F0E6 /* _needle.swift in Sources */,
@@ -602,7 +602,7 @@
 				791911E52700B79F00441D16 /* main.swift in Sources */,
 				292E12B62704F6D3008D3E2B /* NumberFormatter+Extensions.swift in Sources */,
 				79FD958A2700C9550060F0E6 /* DetailViewModel.swift in Sources */,
-				2906FE1E271069A20075A2FB /* UITextField++Extensions.swift in Sources */,
+				2906FE1E271069A20075A2FB /* UITextField+Extensions.swift in Sources */,
 				791911E32700B12000441D16 /* DetailViewController.swift in Sources */,
 				292E12A92703F902008D3E2B /* UICollectionView+Extensions.swift in Sources */,
 				292E12A727036BE2008D3E2B /* UIView+Extensions.swift in Sources */,
