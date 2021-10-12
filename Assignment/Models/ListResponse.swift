@@ -34,8 +34,17 @@ struct ListResponse: JSONEncodable {
      Returns an instance with random values.
      */
     static func stub() -> ListResponse {
-        .init(positions: (1...10).map { _ in
-            .stub()
+        .init(positions: (1...20).map { _ in
+            let story = TestStories(rawValue: Int.random(in: 1...2))!
+            var name:TestNames = .Eagles
+            switch story {
+            case.JetsEagles:
+                name = TestNames(rawValue: Int.random(in: 0...1))!
+            case .Seahawks49ers:
+                name = TestNames(rawValue: Int.random(in: 2...3))!
+            }
+            
+            return .stub(name:name.description, storyName: story.description)
         })
     }
     
@@ -47,6 +56,47 @@ struct ListResponse: JSONEncodable {
     }
 }
 
+
+// MARK - Extended List Response to be able to expand on the stubbed data
+fileprivate extension ListResponse {
+    enum TestStories:Int {
+        case JetsEagles = 1
+        case Seahawks49ers = 2
+    }
+    
+    enum TestNames:Int {
+        case Jets = 0
+        case Eagles = 1
+        case Seahawks = 2
+        case SanFran = 3
+    }
+}
+
+extension ListResponse.TestStories:CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .JetsEagles:
+            return "New York Jets at Philadelphia Eagles"
+        case .Seahawks49ers:
+            return "Settle Seahawks at San Fransico 49ers"
+        }
+    }
+}
+
+extension ListResponse.TestNames:CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .Jets:
+            return "New York Jets"
+        case .Eagles:
+            return "Philadelphia Eagles"
+        case .Seahawks:
+            return "Settle Seahawks"
+        case .SanFran:
+            return "San Fransico 49ers"
+        }
+    }
+}
 /**
  Extension adding `JSONDecodable` conformance.
  */

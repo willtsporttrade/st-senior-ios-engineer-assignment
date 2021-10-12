@@ -54,16 +54,76 @@ final class ListViewModel {
     /**
      Returns the title, suitable for display to the user.
      */
-    var title: String {
-        NSLocalizedString("list.title", value: "Positions", comment: "List title")
-    }
+    var title: String = LocalizedString.positions
+
+    // MARK: Input Properties
     
+    /**
+     Used to set a query string for searching the list of posions.
+     
+     - Note: This property also contains a property wrapped publisher that can
+             is subsribed to within the View Model that will automatically perform
+             the search and update the `positions` property with the results
+     */
+    @Published
+    var searchString = ""
+    
+    // MARK: Input Properties
+    
+    /**
+     Returns the last updated date string, suitable for display to the user.
+     
+     - Note: This property also contains a property wrapped publisher that can
+             be subsribed to using `$lastUpdatedDateString`
+     */
+    @Published
+    private(set) var lastUpdatedDateString:String?
+
+    /**
+     Returns the array of positions for display to the user.
+     
+     - Note: This property also contains a property wrapped publisher that can
+             be subsribed to using `$positions`
+     */
+    @Published
+    private(set) var positions:[PositionModel] = []
+
+
     // MARK: - Private Properties
     private let networkManager: NetworkManager
     private let combineManager: CombineManager
     private var cancellables = Set<AnyCancellable>()
     
+    private var listResponse:ListResponse?
+    
+    private lazy var dateFormatter:DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("E, d h:mm:ss")
+        return dateFormatter
+    }()
+    
+
+    // MARK: - Initializers
+    /**
+     Creates an instance with the provided parameters.
+     
+     - Parameter networkManager: The network manager to use
+     - Returns: The instance
+     */
+    init(networkManager: NetworkManager, combineManager: CombineManager) {
+        self.networkManager = networkManager
+        self.combineManager = combineManager
+        
+        $searchString
+            .removeDuplicates()
+            .sink(receiveValue: { queryString in
+                self.searchPositions(with: queryString)
+            })
+            .store(in: &cancellables)
+    }
+    
     // MARK: - Public Functions
+    
     /**
      Request the list of positions and invoke the provided completion block.
      
@@ -80,20 +140,20 @@ final class ListViewModel {
                     break
                 }
             } receiveValue: {
+                self.listResponse = $0
+                self.lastUpdatedDateString = "\(LocalizedString.lastUpdatedTitle) \(self.dateFormatter.string(from: Date()))"
+                self.searchPositions(with: self.searchString)
                 completion?(.success($0))
             }
             .store(in: &self.cancellables)
     }
-    
-    // MARK: - Initializers
-    /**
-     Creates an instance with the provided parameters.
-     
-     - Parameter networkManager: The network manager to use
-     - Returns: The instance
-     */
-    init(networkManager: NetworkManager, combineManager: CombineManager) {
-        self.networkManager = networkManager
-        self.combineManager = combineManager
+}
+
+// MARK: - Private Functions
+
+extension ListViewModel {
+    private func searchPositions(with searchText:String) {
+        guard let positions = self.listResponse?.positions else { return }
+        self.positions = searchText.isEmpty ? positions : positions.filter{ $0.name.contains(searchText) }
     }
 }

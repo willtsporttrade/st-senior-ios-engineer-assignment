@@ -65,13 +65,16 @@ struct PositionModel: JSONEncodable {
      
      - Returns: The instance
      */
-    static func stub(identifier: String = UUID().uuidString) -> PositionModel {
-        .init(identifier: identifier, name: "Philadelphia Eagles", criteriaName: "To win", storyName: "New York Jets at Philadelphia Eagles", price: NSDecimalNumber(value: Double.random(in: 0.1...99.9)), quantity: NSDecimalNumber(value: Double.random(in: 0.1...25.0)))
+    static func stub(identifier: String = UUID().uuidString,
+                     name:String = "Philadelphia Eagles",
+                     storyName:String =  "New York Jets at Philadelphia Eagles") -> PositionModel {
+        .init(identifier: identifier, name: name, criteriaName: "To win", storyName: storyName, price: NSDecimalNumber(value: Double.random(in: 0.1...99.9)), quantity: NSDecimalNumber(value: Double.random(in: 0.1...25.0)))
     }
     
     // MARK: - JSONEncodable
     func toJSON() -> JSON {
         JSON([
+            JSONKey.identifier.rawValue: self.identifier,
             JSONKey.name.rawValue: self.name,
             JSONKey.criteriaName.rawValue: self.criteriaName,
             JSONKey.storyName.rawValue: self.storyName,
@@ -112,5 +115,52 @@ extension PositionModel: JSONDecodable {
         self.storyName = storyName
         self.price = NSDecimalNumber(string: price)
         self.quantity = NSDecimalNumber(string: quantity)
+    }
+}
+
+/// Add Conformance to Hashable
+extension PositionModel: Hashable { }
+
+/// Add Conformance to Comparable for sorting
+extension PositionModel: Comparable {
+    
+    /**
+     compares positions by `identifer`
+     */
+    static func == (lhs:PositionModel, rhs:PositionModel) -> Bool {
+        lhs.identifier == rhs.identifier
+    }
+    
+    /**
+     Sorts positions by `price` in acsending order
+     */
+    static func < (lhs:PositionModel, rhs:PositionModel) -> Bool {
+        let lhsPrice = lhs.price as Decimal
+        let rhsPrice = rhs.price as Decimal
+        return lhsPrice < rhsPrice
+    }
+    
+    /**
+     Sorts positions by `price` in descending order
+     */
+    static func > (lhs:PositionModel, rhs:PositionModel) -> Bool {
+        let lhsPrice = lhs.price as Decimal
+        let rhsPrice = rhs.price as Decimal
+        return lhsPrice > rhsPrice
+    }
+}
+
+/// Extend array of Position Model to allow grouping by story
+extension Array where Element == PositionModel {
+    /**
+     Groups the array of positions by `StoryName`
+     
+     Returns: dictionary containing all positions for each unique story name
+     */
+    func groupByStory() -> [String:[PositionModel]] {
+        self.reduce(into: [:], { partialResult, position in
+            partialResult[position.storyName, default:[]].append(position)
+            partialResult[position.storyName]!.sort(by: < )
+        })
     }
 }

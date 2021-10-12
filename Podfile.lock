@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.4.3)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - Moya/Combine (15.0.0-alpha.1):
     - Moya/Core
   - Moya/Core (15.0.0-alpha.1):
@@ -10,6 +13,7 @@ PODS:
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Charts
   - Moya/Combine (from `https://github.com/Moya/Moya.git`, tag `15.0.0-alpha.1`)
   - NeedleFoundation (~> 0.17)
   - Nimble (~> 9.0)
@@ -19,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - NeedleFoundation
     - Nimble
     - Quick
@@ -36,12 +41,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   NeedleFoundation: 36cfaea9ae9eb527a796f5c1df19296c722666b8
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: c16a363483a32fa8bc528623d914e722d9b2c000
+PODFILE CHECKSUM: fa2efaaad45689282d2ba99f2c7e120ec16d03ae
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.2
